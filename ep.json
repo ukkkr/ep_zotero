@@ -3,14 +3,16 @@
     {
       "name": "zotero",
       "client_hooks": {
+        "postAceInit": "ep_zotero/static/js/hooks",
         "aceInitialized": "ep_zotero/static/js/hooks",
         "aceCreateDomLine": "ep_zotero/static/js/hooks",
         "aceAttribsToClasses": "ep_zotero/static/js/hooks"
       },
       "hooks": {
         "eejsBlock_styles": "ep_zotero/hooks",
-        "eejsBlock_editbarMenuLeft": "ep_zotero/hooks",
-        "eejsBlock_scripts": "ep_zotero/hooks"
+        "eejsBlock_editbarMenuRight": "ep_zotero/hooks",
+        "eejsBlock_scripts": "ep_zotero/hooks",
+        "clientVars":"ep_zotero/hooks:clientVars"
       }
     }
   ]

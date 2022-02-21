@@ -1,20 +1,15 @@
 {
   "name": "ep_zotero",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "description": "Enabe browsing through Zotero collections and insert citation references from there",
+  "author": { "name":  "uko" },  
   "keywords": [
+    "etherpad",
+    "plugin",
     "zotero",
-    "button",
-    "bibliography"
-  ],
-  "description": "Add a zotero button to the toolbar, to search in a zotero gallery and insert a reference.",
-  "contributors": [
-    {
-      "name": "Baptiste Bouchereau",
-      "email": "baptiste.bouchereau@idci-consulting.fr"
-    }
-  ],
-  "dependencies": {},
-  "engines": {
-    "node": "*"
-  }
+    "citation",
+    "zitieren",
+    "bibliography",
+    "reference"
+  ] 
 }

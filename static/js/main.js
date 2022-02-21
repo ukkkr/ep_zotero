@@ -1,23 +1,30 @@
-/**
- * Launch the form modal on click
- */
 jQuery(document).ready(function () {
-    // global variables
-    zoteroGroupId = '';
-    zoteroApiUserId = localStorage.getItem('zoteroApiUserId');
-    zoteroApiUserKey = localStorage.getItem('zoteroApiUserKey');
-
-    // add zotero button action
+    
+    // global constants
+    URL_PREFIX_USERS = "https://api.zotero.org/users/";
+    URL_PREFIX_GROUPS = "https://api.zotero.org/groups/";
+    URL_POSTFIX = "?content=html&key=";
+    URL_POSTFIX_PARAM_END = "&end=true";
+    
+    //global variables
+    zoteroApiUserId = "";
+    zoteroApiUserKey = ""; 
+    zoteroGroupId = "";
+    urlPrefixUsersWithId="";
+    urlPostfixWithKey="";
+    
+    // // Zotero button action
     jQuery(".zoteroButton").on('click', function () {
-        console.log(zoteroApiUserId);
-        console.log(zoteroApiUserKey);
-        // clear identifiant if null
-        if (zoteroApiUserId === '' || zoteroApiUserKey === '') {
-            zoteroApiUserId = '';
-            zoteroApiUserKey = '';
+        urlPrefixUsersWithId = URL_PREFIX_USERS+zoteroApiUserId;
+        urlPostfixWithKey = URL_POSTFIX+zoteroApiUserKey;
+        // close open popup when clicking the button again
+        if ($('.popup').hasClass('popup-show'))
+        {
+            $('.popup').removeClass('popup-show');
+            return;
         }
-        var $formModal = createApiZoteroFormModal();
-        jQuery('body').append($formModal);
-        $formModal.modal();
+        var $formPopup = createApiZoteroFormPopup();
+        jQuery('body').append($formPopup);
+        $formPopup.addClass('popup-show');
     });
 });

@@ -1,22 +1,18 @@
-/**
- * Create the error modal
- */
+// Create error dialog
 function createErrorModal(errorMessage) {
-
-    // create the modal
     var $modal = jQuery(
         '<div class="modal fade" id="error-modal" role="dialog" aria-labelledby="error" aria-hidden="true">'+
             '<div class="modal-dialog">'+
                 '<div class="modal-content">'+
                     '<div class="modal-header">'+
                         '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'+
-                        '<h4 class="modal-title" id="error">Une erreur est survenue</h4>'+
+                        '<h4 class="modal-title" id="error">Ein Problem ist aufgetreten</h4>'+
                     '</div>'+
                     '<div class="modal-body">'+
-                        'Il est possible que vos identifiants soient erronés ou que l\'api zotero soit indisponible actuellement.'+
+                        'Möglicherweise sind Ihre Zugangsdaten falsch oder die Zotero-API ist aktuell nicht verfügbar.'+
                     '</div>'+
                     '<div class="modal-footer">'+
-                        '<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>'+
+                        '<button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>'+
                     '</div>'+
                 '</div>'+
             '</div>'+
@@ -24,10 +20,10 @@ function createErrorModal(errorMessage) {
     );
 
     // create the retry button
-    var $retryButton = jQuery('<button type="button" class="btn btn-primary">Se reconnecter</button>');
+    var $retryButton = jQuery('<button type="button" class="btn btn-primary">Nochmal versuchen</button>');
     $modal.find('.modal-footer').append($retryButton);
 
-    // display the form-modal on click on retry
+    // display the form-modal when clicking on the retry button
     $retryButton.on('click', function () {
         $modal.modal('hide');
         var $formModal = createApiZoteroFormModal();
@@ -38,6 +34,5 @@ function createErrorModal(errorMessage) {
     $modal.on('hidden.bs.modal', function (e) {
         jQuery(this).remove();
     });
-
     return $modal;
 }

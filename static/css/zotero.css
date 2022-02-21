@@ -1,6 +1,6 @@
 .zoteroButton > a > .buttonicon
 {
-    background-image: url('../images/zotero.png');
+    background-image: url('../static/images/zotero.png');
 }
 
 .test
@@ -8,9 +8,64 @@
     color: red;
 }
 
-/* Modals */
+/* Popup container */
+.popup {
+    position:absolute;
+    right: 30px;
+    top: 12%;
+  }
 
-.modal
+.popup .zotero-popup {
+    max-width: 410px;
+    position: absolute;
+    left: 75%;
+    top: 40%;
+  }
+  
+.popup .radio-btn
+{
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+.popup .radio-label 
+{
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.popup .search-label
+{
+    margin-left: 5px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.popup .radio-inline 
+{
+    margin-left: 5px;
+}
+
+/* Modals */
+.modal .radio-btn
+{
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+.modal .radio-label 
+{
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.modal .radio-inline 
+{
+    margin-left: 5px;
+}
+
+
+.modal 
 {
     top: 10%;
     right: 30%;
@@ -28,7 +83,6 @@
     margin-left: 30px;
 }
 
-
 .modal li
 {
     padding-bottom: 5px;
@@ -43,6 +97,7 @@
 {
     margin-left: 10px;
     padding: 0 12px;
+    font-weight: normal;
 }
 
 .modal .ajax-loading
@@ -54,24 +109,6 @@
     margin-top: 20px;
 }
 
-.modal .save-ids
-{
-    font-size: 11px;
-    font-weight: normal;
-    font-style: italic;
-}
-
-.modal .help
-{
-    display: none;
-}
-.modal .help.active
-{
-    display: block;
-}
-
-
-
 .delete-ids
 {
     padding: 1px 5px;
@@ -80,29 +117,53 @@
 }
 
 /* Bootstrap fixes */
-
-.toolbar
-{
-    font-size: 62.5%;
-}
-
 .modal .table tbody>tr>td
 {
     vertical-align: middle;
 }
 
-.modal-body
+.modal-body 
 {
     max-height: 330px;
     overflow: auto;
 }
 
-.modal-dialog
+.modal-dialog 
 {
     width: auto;
 }
 
-#myusernameform
+.input-api
 {
-    font-size: 62.5%;
+    width:250px;
+}
+
+/*
+.zotero-entry
+{
+   text-decoration-line: overline
+   text-decoration: underline wavy
+   text-shadow: 0 0 2px
+}
+*/
+
+.label-api
+{
+    padding: 0px 10px;
+}
+
+.td-group
+{
+    font-weight: bold;
+    font-style: italic;
+}
+
+.td-item-title
+{
+    font-weight: bold;
+}
+
+.td-item
+{
+    font-style: italic;
 }
