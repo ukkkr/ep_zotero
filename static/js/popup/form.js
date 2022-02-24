@@ -49,9 +49,9 @@ var $formModal = jQuery(
                 '</div>'+
                 '<div class="modal-body">'+
                     '<label class="radio-label">Zitierstil:</label>'+
-                    '<label class="radio-inline"><input class="radio-btn" type="radio" name="refradio1" id="refcitation1" checked>APA(7)</label>'+
-                    '<label class="radio-inline"><input class="radio-btn" type="radio" name="refradio2" id="refcitation2">MLA(8)</label>'+
-                    '<label class="radio-inline"><input class="radio-btn" type="radio" name="refradio3" id="refcitation3">Chicago A-D(17)</label><br>'+
+                    '<label class="radio-inline"><input class="radio-btn" type="radio" name="refradio" id="refcitation1" checked>APA(7)</label>'+
+                    '<label class="radio-inline"><input class="radio-btn" type="radio" name="refradio" id="refcitation2">MLA(8)</label>'+
+                    '<label class="radio-inline"><input class="radio-btn" type="radio" name="refradio" id="refcitation3">Chicago A-D(17)</label><br>'+
                 '</div>'+
                 '<div class="modal-footer">'+
                     '<button type="button" class="btn btn-primary" id="insertReferencesButton">Literaturverzeichnis einfügen</button>'+

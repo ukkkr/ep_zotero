@@ -99,7 +99,6 @@ function createChoicePopup(xml) {
             $choicePopup.find('.modal-footer').addClass("ajax-loading");
             zoteroGroupId = jQuery(this).attr("data-group-id");
             var url = URL_PREFIX_GROUPS+zoteroGroupId+"/collections/top"+urlPostfixWithKey;
-            console.log(url);
             jQuery.ajax({
                 url : url
             })

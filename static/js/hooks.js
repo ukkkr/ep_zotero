@@ -253,25 +253,61 @@ function createReferences(innerframebody, citationstyle)
         aGroups=regEx.exec(innerframebody.html());
         if (aGroups!=null)
         {
-            sAuthor=aGroups.groups.author;
+            // author string
+            sAuthors=aGroups.groups.author; 
+            // author array with non empty entries
+            aAuthors=sAuthors.split(';').filter(function(e){return e}); 
+            authorsCount=aAuthors.length;
+            authorString="";
             // Citation styles for citation references
             switch (citationstyle)
             {
                 case CITATION_STYLE.APA:
-                    firstNameInitial = (sAuthor!=null && sAuthor!="") ? sAuthor.charAt(0) : ""; 
-                    retString += "\n" + aGroups.groups.creator+ ", "+ firstNameInitial + ". (" + aGroups.groups.year + "). " + aGroups.groups.title + ".";
+                    for (let j=0; j<authorsCount; j++)
+                    {
+                        aFullAuthor= aAuthors[j].split(' '); 
+                        firstNameInitial = (aFullAuthor.length > 0 && aFullAuthor[0]!="") ? aFullAuthor[0].charAt(0) : ""; 
+                        lastName = (aFullAuthor.length > 1 ) ? aFullAuthor[aFullAuthor.length-1] : ""; 
+                        authorString += lastName + ', ' + firstNameInitial + '.';
+                        if (j < authorsCount-1)
+                            authorString += ', ';
+                        if (authorsCount > 1 && j==authorsCount-2)
+                            authorString += "and ";
+                    }
+                    retString += "\n" + authorString + " (" + aGroups.groups.year + "). " + aGroups.groups.title + ".";
                 break;
 
                 case CITATION_STYLE.MLA:
-                    aAuthor= (sAuthor!=null && sAuthor!="") ? sAuthor.split(' ') : ""; 
-                    firstName = (aAuthor.length > 0) ? aAuthor[0] : "";
-                    retString += "\n" + aGroups.groups.creator + ", "+firstName + ". "+ aGroups.groups.title + ". " + aGroups.groups.year + ".";
+                    for (let j=0; j<authorsCount; j++)
+                    {
+                        if (j==1)
+                        {
+                            authorString += ", et al.";
+                            break;
+                        }
+                        aFullAuthor= aAuthors[j].split(' '); 
+                        firstName = (aFullAuthor.length > 0 && aFullAuthor[0]!="") ? aFullAuthor[0] : ""; 
+                        lastName = (aFullAuthor.length > 1 ) ? aFullAuthor[aFullAuthor.length-1] : ""; 
+                        authorString += lastName + ', ' + firstName;
+                        if (authorsCount == 1)
+                            authorString += '.';
+                    }
+                    retString += "\n" + authorString + " "+ aGroups.groups.title + ". " + aGroups.groups.year + ".";
                 break;
 
                 case CITATION_STYLE.CHICAGO:
-                    aAuthor= (sAuthor!=null && sAuthor!="") ? sAuthor.split(' ') : ""; 
-                    firstName = (aAuthor.length > 0) ? aAuthor[0] : "";
-                    retString += "\n" + aGroups.groups.creator + ", " + firstName+ ". " + aGroups.groups.year + ". "+ aGroups.groups.title + ".";
+                    for (let j=0; j<authorsCount; j++)
+                    {
+                        aFullAuthor= aAuthors[j].split(' '); 
+                        firstName = (aFullAuthor.length > 0 && aFullAuthor[0]!="") ? aFullAuthor[0] : ""; 
+                        lastName = (aFullAuthor.length > 1 ) ? aFullAuthor[aFullAuthor.length-1] : ""; 
+                        authorString += lastName + ', ' + firstName;
+                        if (j < authorsCount-1)
+                            authorString += ', ';
+                        if (authorsCount > 1 && j==authorsCount-2)
+                            authorString += "and ";
+                    }
+                    retString += "\n" + authorString +  ". " + aGroups.groups.year + ". "+ aGroups.groups.title + ".";
                 break;
                 
                 default:

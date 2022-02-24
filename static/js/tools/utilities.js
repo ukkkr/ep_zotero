@@ -52,11 +52,15 @@ function getEntryYear(entry) {
 }
 
 /**
- * Get the entry author
+ * Get the entry author(s)
  */
-function getEntryAuthorName(entry) {
-    var authorName = jQuery(entry).find('content tr.creator td').text();
-    return authorName;
+function getEntryAuthorNames(entry) {
+    var authorNames="";
+    // jQuery(entry).find('content tr.creator td').text();
+    jQuery(entry).find('content tr.creator td').each(function() { 
+        authorNames+=$(this).text()+";";
+    });
+    return authorNames;
 }
 
 /**

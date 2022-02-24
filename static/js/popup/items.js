@@ -16,9 +16,9 @@ function createItemsPopup(xml, collectionTitle) {
     var $list = jQuery('<div id="modal-list"></div>');
     $list.append(jQuery(
         '<label class="radio-label">Zitierstil:</label>'+
-        '<label class="radio-inline"><input class="radio-btn" type="radio" name="optradio1" id="citation1" checked>APA(7)</label>'+
-        '<label class="radio-inline"><input class="radio-btn" type="radio" name="optradio2" id="citation2">MLA(8)</label>'+
-        '<label class="radio-inline"><input class="radio-btn" type="radio" name="optradio3" id="citation3">Chicago A-D(17)</label><br><br>'+
+        '<label class="radio-inline"><input class="radio-btn" type="radio" name="optradio" id="citation1" checked>APA(7)</label>'+
+        '<label class="radio-inline"><input class="radio-btn" type="radio" name="optradio" id="citation2">MLA(8)</label>'+
+        '<label class="radio-inline"><input class="radio-btn" type="radio" name="optradio" id="citation3">Chicago A-D(17)</label><br><br>'+
         '<label class="search-label">Suche:</label><input class="search" placeholder="in Zitatquellen-Liste"/><br><br>'+
         '<table class="table table-striped">'+
             '<thead>'+
@@ -45,7 +45,7 @@ function createItemsPopup(xml, collectionTitle) {
                 // get the needed info from xml
                 var entryTitle = getEntryTitle(this);
                 var entryYear = getEntryYear(this);
-                var authorName = getEntryAuthorName(this);
+                var authorName = getEntryAuthorNames(this);
                 var creatorSummary = getEntryCreatorSummary(this);
                 var itemKey = getEntryItemKey(this);
                 var url = getEntryUrl(this);
